@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+
+
+    <link th:href="@{/img/ananaLogo.png}" href="../static/img/ananaLogo.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link th:href="@{/css/index.css}" href="../static/css/index.css" rel="stylesheet"/>
+
+</head>
+
+<body class="text-center">
+
+    <form class="form-signin" th:action="@{/login}" method="post">
+
+        <img class="mb-4" th:src="@{/img/ananaLogo.png}" src="../static/img/ananaLogo.png" alt="logoAnana" height="150" />
+
+        <h1 class="h1 mb-3 font-weight-normal">Anana Bank</h1>
+
+        <div id="logAlert">
+            <div th:if="${param.error}" class="alert alert-danger" id="loginError" role="alert">
+                Campos incorrectos
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success" id="logoutSuccess" role="alert">
+                Has cerrado sesión
+            </div>
+        </div>
+
+        <label for="username" class="sr-only">Usuario</label>
+        <input type="text" id="username" class="form-control" placeholder="Usuario" required autofocus
+            name="username" />
+
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Contraseña" required
+            name="password" />
+
+        <!-- <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me" /> Recuérdame
+            </label>
+        </div> -->
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnLogin">
+            Iniciar sesión
+        </button>
+
+        <a class="btn btn-lg btn-dark btn-block" type="button" th:href="@{/signin}" href="signin.html" id="btnSignIn">
+            Quiero Registrarme !
+        </a>
+        
+    </form>
+
+</body>
+</html>
